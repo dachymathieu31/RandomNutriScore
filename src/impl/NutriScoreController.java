@@ -4,14 +4,15 @@ import java.util.TimerTask;
 
 import api.controller.IRandCaller;
 import api.view.IRndNutriScoreView;
-import view.RndNutriScoreView;
+import view.RndNutriScoreView2;
 
 public class NutriScoreController extends TimerTask {
 
 	private IRndNutriScoreView rndNutriView;
 
 	public NutriScoreController() {
-		this.rndNutriView = new RndNutriScoreView();
+//		this.rndNutriView = new RndNutriScoreView();
+		this.rndNutriView = new RndNutriScoreView2();
 	}
 
 	@Override
