@@ -14,7 +14,7 @@ public class NutriScoreController extends TimerTask {
 	public NutriScoreController() {
 		this.rndNutriView = new RndNutriScoreView();
 		this.rndCaller = new RandCaller("https://api.random.org/json-rpc/2/invoke",
-				"1ddb11f7-ab2d-4cb8-a366-68c13d63951b");
+				"2f964ece-bf9a-43be-9eb7-f10b94bc8bb3");
 	}
 
 	@Override
