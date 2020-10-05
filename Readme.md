@@ -1,6 +1,6 @@
 # NutriScore
 
-Foobar is software which displays a different random nutriscore each 10 seconds
+NutriScore is software which displays a different random nutriscore each 10 seconds
 
 ## Installation
 
