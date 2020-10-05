@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -32,17 +33,20 @@ public class RndNutriScoreView extends JFrame implements IRndNutriScoreView {
 		SwingUtilities.invokeLater(() -> {
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			FlowLayout nutriFlow = new FlowLayout();
-			nutriFlow.setVgap(-30);
+			nutriFlow.setVgap(15);
+			JPanel panelLabel = new JPanel();
 			JLabel nutriLabel = new JLabel("Nutri-Score");
-			nutriLabel.setLayout(nutriFlow);
+			nutriLabel.setFont(new Font("Serif", Font.PLAIN, 28));
+			panelLabel.add(nutriLabel);
+			panelLabel.setLayout(nutriFlow);
 			nutriLabel.setHorizontalAlignment(JLabel.CENTER);
 
 			JPanel nutriSlider = new JPanel();
 			FlowLayout sliderFlow = new FlowLayout();
-			sliderFlow.setVgap(45);
+			sliderFlow.setVgap(40);
 			nutriSlider.setLayout(sliderFlow);
 
-			this.add(nutriLabel, BorderLayout.NORTH);
+			this.add(panelLabel, BorderLayout.NORTH);
 			this.add(nutriSlider, BorderLayout.SOUTH);
 			this.a = createLabel("A", new Color(9.0f / 255f, 139.0f / 255f, 49.0f / 255f));
 			this.b = createLabel("B", new Color(153.0f / 255f, 196.0f / 255f, 46.0f / 255f));
