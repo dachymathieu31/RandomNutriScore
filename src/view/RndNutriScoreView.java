@@ -32,6 +32,7 @@ public class RndNutriScoreView extends JFrame implements IRndNutriScoreView {
 		this.selectedLetter = Integer.MAX_VALUE;
 		SwingUtilities.invokeLater(() -> {
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 			FlowLayout nutriFlow = new FlowLayout();
 			nutriFlow.setVgap(15);
 			JPanel panelLabel = new JPanel();
@@ -48,6 +49,7 @@ public class RndNutriScoreView extends JFrame implements IRndNutriScoreView {
 
 			this.add(panelLabel, BorderLayout.NORTH);
 			this.add(nutriSlider, BorderLayout.SOUTH);
+
 			this.a = createLabel("A", new Color(9.0f / 255f, 139.0f / 255f, 49.0f / 255f));
 			this.b = createLabel("B", new Color(153.0f / 255f, 196.0f / 255f, 46.0f / 255f));
 			this.c = createLabel("C", new Color(251.0f / 255f, 186.0f / 255f, 0.0f / 255f));

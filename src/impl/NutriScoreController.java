@@ -1,6 +1,5 @@
 package impl;
 
-import java.io.IOException;
 import java.util.TimerTask;
 
 import api.controller.IRandCaller;
@@ -12,7 +11,7 @@ public class NutriScoreController extends TimerTask {
 	private IRndNutriScoreView rndNutriView;
 	private IRandCaller rndCaller;
 
-	public NutriScoreController() throws IOException {
+	public NutriScoreController() {
 		this.rndNutriView = new RndNutriScoreView();
 		this.rndCaller = new RandCaller("https://api.random.org/json-rpc/2/invoke",
 				"1ddb11f7-ab2d-4cb8-a366-68c13d63951b");
