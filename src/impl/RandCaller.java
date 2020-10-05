@@ -58,9 +58,21 @@ public class RandCaller implements IRandCaller {
 
 				// Parse Json response
 				JsonObject jsonObject = JsonParser.parseString(response.toString()).getAsJsonObject();
+				JsonElement error = jsonObject.get("error");
+				if (error != null) {
+					JsonElement codeError = error.getAsJsonObject().get("code");
+					if (codeError.toString().equals("402")) {
+						throw new Exception("Code error : " + codeError.toString() + " The API key " + this.apiKey
+								+ " has done to much request on random.org for this day (> 1000)");
+					} else {
+						throw new Exception("Unknown error");
+					}
+				}
 				JsonElement data = jsonObject.get("result").getAsJsonObject().get("random").getAsJsonObject()
 						.get("data");
 				return data.getAsBigInteger().intValue();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -1,5 +1,9 @@
 package impl;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.TimerTask;
 
 import api.controller.IRandCaller;
@@ -11,10 +15,18 @@ public class NutriScoreController extends TimerTask {
 	private IRndNutriScoreView rndNutriView;
 	private IRandCaller rndCaller;
 
-	public NutriScoreController() {
+	public NutriScoreController() throws IOException {
 		this.rndNutriView = new RndNutriScoreView();
-		this.rndCaller = new RandCaller("https://api.random.org/json-rpc/2/invoke",
-				"1ddb11f7-ab2d-4cb8-a366-68c13d63951b");
+		Properties props = new Properties();
+		String propFileName = "config.properties";
+		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(propFileName);
+		if (inputStream != null) {
+			props.load(inputStream);
+		} else {
+			throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+		}
+
+		this.rndCaller = new RandCaller("https://api.random.org/json-rpc/2/invoke", props.getProperty("apikey"));
 	}
 
 	@Override
